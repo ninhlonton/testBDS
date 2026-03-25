@@ -17,9 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import HttpResponse
+
+def home(request):                   
+    return HttpResponse("ninhlonton testBDS")
+
 
 urlpatterns = [
     path('', include('pages.urls')),
+    path('', home),
     path('admin/', admin.site.urls),
     path('listings/', include('listings.urls')),
     path('accounts/', include('accounts.urls')),
